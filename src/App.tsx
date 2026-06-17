@@ -22,7 +22,7 @@ export function App() {
   return (
     <>
       <header className="app-header">
-        <img src="./header.png" alt="Forester's Fieldbook — The Burl Ashley Tribute App" style={{ width: '100%', display: 'block' }} />
+        <img src="/header.png" alt="Forester's Fieldbook — The Burl Ashley Tribute App" style={{ width: '100%', display: 'block' }} />
       </header>
 
       {tab === 'home' && <HomePage onNavigate={navigate} />}
