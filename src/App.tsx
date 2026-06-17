@@ -8,7 +8,7 @@ import { StockingGuides } from './features/guides/StockingGuides'
 import { ReferencePage } from './features/reference/ReferencePage'
 import { AboutPage } from './features/about/AboutPage'
 
-type Tab = 'home' | 'calculate' | 'cruise' | 'guides' | 'reference'
+type Tab = 'home' | 'calculate' | 'cruise' | 'guides' | 'reference' | 'about'
 
 export function App() {
   const [tab, setTab] = useState<Tab>('home')
@@ -29,11 +29,8 @@ export function App() {
       {tab === 'calculate' && <CalculateScreen sub={sub} onSubChange={setSub} />}
       {tab === 'cruise' && <CruiseScreen sub={sub} onSubChange={setSub} />}
       {tab === 'guides' && <StockingGuides sub={sub} onSubChange={setSub} />}
-      {tab === 'reference' && sub === 'about'
-        ? <AboutPage onBack={() => setSub(undefined)} />
-        : tab === 'reference' && !sub
-          ? <ReferencePage onNavigate={navigate} onAbout={() => setSub('about')} />
-          : null}
+      {tab === 'reference' && <ReferencePage onNavigate={navigate} onAbout={() => setTab('about')} />}
+      {tab === 'about' && <AboutPage onBack={() => setTab('reference')} />}
 
       <BottomNav active={tab} onChange={t => { setTab(t); setSub(undefined) }} />
     </>

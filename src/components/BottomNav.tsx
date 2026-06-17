@@ -1,4 +1,4 @@
-type Tab = 'home' | 'calculate' | 'cruise' | 'guides' | 'reference'
+type Tab = 'home' | 'calculate' | 'cruise' | 'guides' | 'reference' | 'about'
 
 interface Props {
   active: Tab
@@ -11,6 +11,7 @@ const tabs: { id: Tab; label: string; icon: string }[] = [
   { id: 'cruise', label: 'Cruise', icon: '🧭' },
   { id: 'guides', label: 'Guides', icon: '📊' },
   { id: 'reference', label: 'Reference', icon: '📖' },
+  { id: 'about', label: 'About', icon: 'ℹ️' },
 ]
 
 export function BottomNav({ active, onChange }: Props) {
